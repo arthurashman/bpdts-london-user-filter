@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: BPDTS London user filter
+  version: "1.0.0"
+  description: Returns users from https://bpdts-test-app.herokuapp.com/users whose current coordinates are within 50 miles of London
+paths:
+  /:
+    get:
+      description: Returns users whose current coordinates are within 50 miles of London
+      responses:
+        '200':
+          description: successful return of a list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                   $ref: '#/components/schemas/User'
+                example: [{"id":224,"first_name":"Arthur","last_name":"Ashman","email":"arthurashman@example.com","ip_address":"67.4.192.43","latitude":51.499784,"longitude":-0.131100}]
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 224
+        first_name:
+          type: string
+          example: "Arthur"
+        last_name:
+          type: string
+          example: "Ashman"
+        email:
+          type: string
+          example: "arthurashman@example.com"
+        ip_address:
+          type: string
+          example: "67.4.192.43"
+        latitude:
+          type: number
+          example: 51.499784
+        longitude:
+          type: number
+          example: -0.131100
