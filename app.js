@@ -2,12 +2,7 @@ const express = require('express');
 const request = require('request-promise');
 
 const calculateDistance = require('./modules/calculateDistance')
-
-const london = {
-  lat: 51.50853,
-  lon: -0.12574,
-  catchmentRadius: 50
-}
+const london = require('./cities').london
 
 let londonUsers = null
 
