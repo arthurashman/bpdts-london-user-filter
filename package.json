@@ -11,6 +11,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "mocha": "^8.0.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
     "supertest": "^4.0.2"
   },
   "devDependencies": {
