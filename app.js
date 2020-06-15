@@ -1,7 +1,9 @@
 const express = require('express');
 const request = require('request-promise');
 
-let users = null
+const calculateDistance = require('./modules/calculateDistance')
+
+let londonUsers = null
 
 var options = {
   uri: 'https://bpdts-test-app.herokuapp.com/users',
@@ -9,13 +11,15 @@ var options = {
 }
 
 request(options)
-  .then(data => {
-     users = data
+  .then(users => {
+    londonUsers = users.filter(user => {
+      return calculateDistance(user.latitude, user.longitude, 51.50853, -0.12574) < 50
+    })
   })
 
 const app = express();
 
-app.get('/', (req, res) => res.status(200).send(users));
+app.get('/', (req, res) => res.status(200).send(londonUsers));
 
 const port = process.env.PORT || 8080;
 

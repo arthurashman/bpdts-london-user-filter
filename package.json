@@ -1,12 +1,18 @@
 {
   "name": "bpdts-london-user-filter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Returns users from https://bpdts-test-app.herokuapp.com/users whose current coordinates are within 50 miles of London",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "app": "nodemon app.js",
     "test": "mocha"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurashman/bpdts-london-user-filter.git"
+  },
+  "author": "Arthur Ashman",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.2.0",
